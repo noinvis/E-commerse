@@ -25,13 +25,6 @@ const Login = () => {
     })
   };
 
-  const message = signIn.error?.response?.data?.message 
-
-  const errorMessage =
-    typeof message === "string"
-      ? message
-      : message?.map((i: string, inx: number) => <p key={inx}>{i}</p>);
-
   return (
     <div className="bg-slate-100 h-screen grid place-items-center">
       <div className="max-w-[450px] w-full bg-white p-6 rounded-xl shadow">
@@ -59,7 +52,7 @@ const Login = () => {
           </Form.Item>
           {signIn.isError && (
             <div className="mb-6">
-              <Alert message={errorMessage} type="error" />
+              <Alert type="error" />
             </div>
           )}
           <Form.Item label={null}>
