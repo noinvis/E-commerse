@@ -1,9 +1,11 @@
 import { memo } from 'react';
+import UserTable from '../components/user-table/UserTable';
 
 const User = () => {
   return (
-    <div className="User">
-      <h2 className='text-center text-[22px] pt-[1rem]'>User</h2>
+    <div className="User px-[1rem]">
+      <h2 className='text-center text-[22px] py-[1rem]'>Users</h2>
+        <UserTable/>
     </div>
   );
 };

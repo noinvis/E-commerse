@@ -19,27 +19,24 @@ const Sidebar = () => {
             role="img"
             aria-label="E-Commerce logo"
           >
-            <g transform="translate(8,6)">
-              <rect
-                x="0"
-                y="0"
-                width="34"
-                height="34"
-                rx="6"
-                fill="#BA8D5B"
-                opacity="0.06"
-              />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="48"
+              height="48"
+              viewBox="0 0 48 48"
+              fill="none"
+              aria-hidden="true"
+            >
               <path
-                d="M6 10h1.8l3.6 10.5a1.2 1.2 0 0 0 1.14.8h8.16a1.2 1.2 0 0 0 1.14-.8L28 10.6H10"
+                d="M8 10h3.5l4.5 18h16l4-12H16"
                 stroke="#BA8D5B"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                fill="none"
               />
-              <circle cx="14" cy="26" r="2.4" fill="#0F1826" />
-              <circle cx="24" cy="26" r="2.4" fill="#0F1826" />
-            </g>
+              <circle cx="18" cy="37" r="2.6" fill="#0F1826" />
+              <circle cx="34" cy="37" r="2.6" fill="#0F1826" />
+            </svg>
 
             <g transform="translate(54,12)">
               <text

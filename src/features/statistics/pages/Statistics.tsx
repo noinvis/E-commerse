@@ -3,7 +3,7 @@ import { memo } from 'react';
 const Statistics = () => {
   return (
     <div className="Statistics">
-      <h2 className='text-center text-[22px] pt-[1rem]'>Statistics</h2>
+      <h2 className='text-center text-[22px] py-[1rem]'>Statistics</h2>
     </div>
   );
 };
