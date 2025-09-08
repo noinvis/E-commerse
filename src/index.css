@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+.dashboard{
+    display: flex;
+}
+.container{
+    max-width: 1460px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+.sidebar{
+    height: 100vh;
+    width: 280px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+}
+.sidebar ul{
+    margin-top: 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.content{
+    flex: 1;
+}
+.main{
+    padding: 20px;
+}
+.sidebar__link{
+    display: block;
+    padding:  12px;
+    text-decoration: none;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    transition: .3s;
+    color: #555;
+}
+.sidebar__link.active{
+    padding: 12px;
+    color: #BC8E5B;
+    background: #faeddf;
+}
+button:hover{
+    cursor: pointer;
+}
+
+.tab {
+    display: flex;
+    margin-bottom: 20px;
+}
+.tab a{
+    text-decoration: none;
+    color: #555;
+    padding: 10px 0;
+    background: white;
+    color: #BC8E5B;
+    text-align: center;
+    border: 1px solid #BC8E5B;
+    transition: .3s;
+}
+.tab a.active{
+    color: white;
+    background: #BC8E5B;
+}
+.round{
+    border-radius: 10px 0 0 10px;
+}
+.round2{
+    border-radius: 0 10px 10px 0;
+}
+.border,
+.border-t1{
+    border: 1px solid #999;
+}
