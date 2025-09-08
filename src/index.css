@@ -47,6 +47,10 @@
     transition: .3s;
     color: #555;
 }
+.sidebar__link:hover{
+    background: #e0e0e0;
+    transition: .3s ease;
+}
 .sidebar__link.active{
     padding: 12px;
     color: #BC8E5B;
