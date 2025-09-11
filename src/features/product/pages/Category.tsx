@@ -4,10 +4,10 @@ import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useCategory } from "../store/useCategory";
 
 const Categories = () => {
-  const { getAllCategories, create, update, deleteCategory } = useCategory();
-  const { data, isLoading } = getAllCategories();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [edit, setEdit] = useState<any>(null);
+  const { getAllCategories, create, update, deleteCategory } = useCategory();
+  const { data, isLoading } = getAllCategories();
   const [form] = Form.useForm();
 
   const handleCreate = () => {
@@ -53,7 +53,7 @@ const Categories = () => {
     {
       title: "Category Title",
       dataIndex: "name",
-      render: (text: string) => <span className="font-semibold">{text}</span>,
+      render: (text: string) => <p className="font-medium">{text}</p>,
     },
     {
       title: "Action",

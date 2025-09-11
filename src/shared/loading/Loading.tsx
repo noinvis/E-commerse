@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import logo from '../assets/icon.png'
+import logo from '../assets/image.png'
 
 const Loading = () => {
   return (
