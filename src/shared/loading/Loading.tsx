@@ -4,7 +4,9 @@ import logo from '../assets/icon.png'
 const Loading = () => {
   return (
     <div className="h-screen flex justify-center items-center bg-white">
-        <img src={logo} width={500} height={500}/>
+        <div className='size-[400px] duration-300'>
+            <img src={logo}/>
+        </div>
     </div>
   );
 };
