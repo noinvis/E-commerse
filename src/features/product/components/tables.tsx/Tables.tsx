@@ -1,6 +1,7 @@
 import React, { memo } from "react";
-import { Table, Space, Tag } from "antd";
+import { Table, Space, Tag, Button, Popconfirm } from "antd";
 import type { TableProps } from "antd";
+import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
 interface ProductType {
   key: string;
@@ -64,11 +65,25 @@ const columns: TableProps<ProductType>["columns"] = [
     title: "Action",
     key: "action",
     render: () => (
-      <Space size="middle">
-        <button className="bg-green-500 text-white p-[5px] rounded-[4px]">Edit</button>
-        <button className="bg-red-500 text-white p-[5px] rounded-[4px]">Delete</button>
-      </Space>
-    ),
+        <Space>
+          <Button
+            icon={<EditOutlined />}
+            type="primary"
+            ghost
+          >
+            Edit
+          </Button>
+          <Popconfirm
+            title="Are you sure delete this category?"
+            okText="Yes"
+            cancelText="No"
+          >
+            <Button danger icon={<DeleteOutlined />}>
+              Delete
+            </Button>
+          </Popconfirm>
+        </Space>
+      ),
   },
 ];
 

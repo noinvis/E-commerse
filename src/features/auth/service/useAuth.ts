@@ -16,7 +16,6 @@ interface IResponseGetAllUsers {
 }
 
 export const useAuth = () => {
-  // [SuccessType, ErrorType] - generic
   const getUsers = () =>
     useQuery<IResponseGetAllUsers, any>({
       queryKey: [userKey],
@@ -29,8 +28,7 @@ export const useAuth = () => {
       queryFn: () => api.get("auth/me").then((res) => res.data),
       retry: 0
     });
-
-  // [SuccessType, ErrorType, BodyType]
+    
   const signIn = useMutation<any, any, { email: string; password: string }>({
     mutationFn: (body) => api.post("auth/signin", body).then((res) => res.data),
   });

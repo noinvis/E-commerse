@@ -88,3 +88,15 @@ button:hover{
 .border-t1{
     border: 1px solid #999;
 }
+.custom-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #BC8E5B !important;
+}
+
+.custom-tabs .ant-tabs-tab:hover .ant-tabs-tab-btn {
+  color: #BC8E5B !important;
+}
+
+.custom-tabs .ant-tabs-ink-bar {
+  background-color: #BC8E5B !important;
+}
+
