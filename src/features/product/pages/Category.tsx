@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import { Button, Form, Input, Modal, Popconfirm, Space, Table } from "antd";
+import { Button, Form, Input, Modal, Space, Table } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import { useCategory } from "../store/useCategory";
 
@@ -59,26 +59,19 @@ const Categories = () => {
       title: "Action",
       key: "action",
       width: 200,
-      render: (_: any, record: any) => (
+      render: (_: any, item: any) => (
         <Space>
           <Button
             icon={<EditOutlined />}
             type="primary"
             ghost
-            onClick={() => handleEdit(record)}
+            onClick={() => handleEdit(item)}
           >
             Edit
           </Button>
-          <Popconfirm
-            title="Are you sure delete this category?"
-            okText="Yes"
-            cancelText="No"
-            onConfirm={() => handleDelete(record.id)}
-          >
-            <Button danger icon={<DeleteOutlined />}>
+            <Button danger icon={<DeleteOutlined />} onClick={() => handleDelete(item.id)}>
               Delete
             </Button>
-          </Popconfirm>
         </Space>
       ),
     },
