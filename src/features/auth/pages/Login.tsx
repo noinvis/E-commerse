@@ -14,21 +14,21 @@ type FieldType = {
 
 const Login = () => {
   const { signIn } = useAuth();
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const {user} = useSelector((state: RootState) => state.auth)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { user } = useSelector((state: RootState) => state.auth);
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     signIn.mutate(values, {
       onSuccess: (res) => {
-        dispatch(setToken(res.data))
-        dispatch(removeUser())
-        navigate("/")
-      }
-    })
+        dispatch(setToken(res.data));
+        dispatch(removeUser());
+        navigate("/");
+      },
+    });
   };
 
-  const message = signIn.error?.response?.data?.message 
+  const message = signIn.error?.response?.data?.message;
 
   const errorMessage =
     typeof message === "string"
@@ -38,13 +38,15 @@ const Login = () => {
   return (
     <div className="bg-slate-100 h-screen grid place-items-center">
       <div className="max-w-[450px] w-full bg-white p-6 rounded-xl shadow">
-        <h2 className="text-2xl font-bold mb-4 text-center">Sign in</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center text-blue-600">Sign in</h2>
         <Form
           name="basic"
           onFinish={onFinish}
           autoComplete="off"
           layout="vertical"
-          initialValues={user ? {email: user.email, password: user.password} : {}}
+          initialValues={
+            user ? { email: user.email, password: user.password } : {}
+          }
         >
           <Form.Item<FieldType>
             label="Email"
@@ -66,12 +68,19 @@ const Login = () => {
               <Alert message={errorMessage} type="error" />
             </div>
           )}
-          <Form.Item label={null}>
-            <Button loading={signIn.isPending} type="primary" htmlType="submit">
+          <div className="flex gap-[1rem] items-center">
+            <Button
+              loading={signIn.isPending}
+              type="primary"
+              htmlType="submit"
+              className="w-full"
+            >
               Submit
             </Button>
-          </Form.Item>
-          <Link to={"/register"}>Register</Link>
+            <Link to={"/register"} className="w-full flex justify-center rounded-[10px] py-[5px]">
+              Register
+            </Link>
+          </div>
         </Form>
       </div>
     </div>
