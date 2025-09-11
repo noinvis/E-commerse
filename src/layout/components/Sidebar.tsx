@@ -71,7 +71,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={"sidebar__link"} to={"product"}>
+            <NavLink className={"sidebar__link"} to={"product-main"}>
               <div className="flex gap-[16px] items-center">
                 <AiOutlineProduct className="text-[24px]" />
                 <p>Products</p>

@@ -5,6 +5,8 @@ const Auth = lazy(() => import("../features/auth/pages/Auth"));
 const Register = lazy(() => import("../features/auth/pages/Register"));
 const Login = lazy(() => import("../features/auth/pages/Login"));
 const Product = lazy(() => import("../features/product/pages/Product"));
+const Category = lazy(() => import("../features/product/pages/Category"));
+const ProductMain = lazy(() => import("../features/product/components/productmain/ProductMain"));
 const User = lazy(() => import("../features/user/pages/User"));
 const Statistic = lazy(() => import("../features/statistics/pages/Statistics"));
 
@@ -23,8 +25,18 @@ const AppRoutes = () => {
               element: <Statistic />,
             },
             {
-              path: "/product",
-              element: <Product />,
+              path: "/product-main",
+              element: <ProductMain/>,
+              children: [
+                {
+                  index: true,
+                  element: <Product />,
+                },
+                {
+                  path: "categories",
+                  element: <Category/>,
+                },
+              ],
             },
             {
               path: "/user",
