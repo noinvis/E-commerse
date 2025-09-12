@@ -1,7 +1,7 @@
 import { memo, useState } from "react";
 import { Button, Form, Input, Modal, Space, Table } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
-import { useCategory } from "../store/useCategory";
+import { useCategory } from "../service/useCategory";
 
 const Categories = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -81,14 +81,14 @@ const Categories = () => {
     <div className="px-4">
         <p className="text-center text-[22px] py-[1rem]">Categories</p>
         <div className="flex justify-end pb-4">
-            <Button onClick={handleCreate} style={{ backgroundColor: "#BC8E5B", borderColor: "#BC8E5B", color: "white", padding: "16px" }} >+ Add</Button>
+            <Button onClick={handleCreate} style={{ backgroundColor: "#BC8E5B", borderColor: "#BC8E5B", color: "white", padding: "16px" }} >Add Category</Button>
         </div>
         <Table
             columns={columns}
             dataSource={data?.data || []}
             rowKey="id"
             loading={isLoading}
-            pagination={{ pageSize: 8 }}
+            pagination={{ pageSize: 9 }}
             bordered
         />
 

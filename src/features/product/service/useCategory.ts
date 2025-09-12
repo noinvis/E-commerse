@@ -8,7 +8,8 @@ export const useCategory = () => {
 
     const getAllCategories = () => useQuery<any, any>({
         queryKey: [categoryKey],
-        queryFn: () => api.get("category").then(res => res.data)
+        queryFn: () => api.get("category").then(res => res.data),
+        staleTime: 1000 * 60 * 5
     })
 
     const create = useMutation<any, any, { name: string }>({
