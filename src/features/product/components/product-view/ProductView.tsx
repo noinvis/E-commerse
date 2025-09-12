@@ -6,7 +6,7 @@ import { Button, Image, Select } from "antd";
 const ProductView: FC<any> = ({ showModal }) => {
   const { getAllProducts, deleteProduct } = useProduct();
 
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(0);
   const [order, setOrder] = useState<"latest" | "expensive" | "cheapest">(
     "latest"
   );
