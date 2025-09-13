@@ -126,7 +126,7 @@ const ProductView: FC<any> = ({ showModal }) => {
                 <p className="line-clamp-1 font-semibold">{item.title}</p>
                 <p className="line-clamp-1 font-medium">{item.description}</p>
                 <p className="font-medium">{item.price} USD</p>
-                <p className="font-medium">{item.brand}</p>
+                <p className="font-medium">{item.category.name}</p>
                 <p className="mt-4 font-semibold">{item.user.fname}</p>
                 <p className="line-clamp-1 font-medium">{item.user.email}</p>
               </div>
