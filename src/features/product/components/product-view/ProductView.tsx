@@ -54,7 +54,7 @@ const ProductView: FC<any> = ({ showModal }) => {
 
   if (isLoading) {
     return (
-      <div className="h-[50vh] flex justify-center items-center">
+      <div className="h-[70vh] flex justify-center items-center">
         <div className="loader"></div>
       </div>
     );
