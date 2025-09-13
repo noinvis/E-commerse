@@ -15,11 +15,11 @@ const Header = () => {
     navigate("/login");
   };
   return (
-    <div className="flex items-center justify-between pb-[1rem]">
+    <div className="flex items-center justify-between sticky top-0 z-10 bg-white h-[60px]">
       <button className="p-[10px] bg-[#BC8E5B] text-white rounded-[10px] cursor-pointer">
         <FaBars />
       </button>
-      <div className="flex gap-[24px] pr-[30px]">
+      <div className="flex gap-[24px]">
         <button className="text-[20px] text-[#555] cursor-pointer">
           <BsBellFill />
         </button>
