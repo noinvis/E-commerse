@@ -86,6 +86,14 @@ const Sidebar = () => {
               </div>
             </NavLink>
           </li>
+          <li>
+            <NavLink className={"sidebar__link"} to={"profile"}>
+              <div className="flex gap-[16px] items-center">
+                <BiSolidUserAccount className="text-[24px]" />
+                <p>Profile</p>
+              </div>
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

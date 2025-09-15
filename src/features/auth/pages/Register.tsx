@@ -88,12 +88,19 @@ const Register = () => {
               <Alert message={errorMessage} type="error" />
             </div>
           )}
-          <Form.Item label={null}>
-            <Button loading={signUp.isPending} type="primary" htmlType="submit">
+          <div className="flex gap-[1rem] items-center">
+            <Button
+              loading={signUp.isPending}
+              type="primary"
+              htmlType="submit"
+              className="w-full"
+            >
               Submit
             </Button>
-          </Form.Item>
-          <Link to={"/login"}>Login</Link>
+            <Link to={"/login"} className="w-full flex justify-center rounded-[10px] py-[5px]">
+              Login
+            </Link>
+          </div>
         </Form>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { useRoutes } from "react-router-dom";
+import Profile from "../features/profile/Profile";
 const DashboardLayout = lazy(() => import("../layout/DashboardLayout"));
 const Auth = lazy(() => import("../features/auth/pages/Auth"));
 const Register = lazy(() => import("../features/auth/pages/Register"));
@@ -38,6 +39,10 @@ const AppRoutes = () => {
                   element: <Category/>,
                 },
               ],
+            },
+            {
+              path: "/profile",
+              element: <Profile/>
             },
             {
               path: "/user",
