@@ -4,6 +4,7 @@ import Profile from "../features/profile/Profile";
 const DashboardLayout = lazy(() => import("../layout/DashboardLayout"));
 const Auth = lazy(() => import("../features/auth/pages/Auth"));
 const Register = lazy(() => import("../features/auth/pages/Register"));
+const Otp = lazy(() => import("../features/auth/pages/Otp"));
 const Login = lazy(() => import("../features/auth/pages/Login"));
 const NotFound = lazy(() => import("../features/not-found/NotFound"));
 const Product = lazy(() => import("../features/product/pages/Product"));
@@ -54,6 +55,7 @@ const AppRoutes = () => {
     },
     { path: "/login", element: <Login /> },
     { path: "/register", element: <Register /> },
+    { path: "/otp", element: <Otp /> },
     { path: "*", element: <NotFound /> },
   ]);
 };

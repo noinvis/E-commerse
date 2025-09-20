@@ -23,7 +23,14 @@ const Login = () => {
       onSuccess: (res) => {
         dispatch(setToken(res.data));
         dispatch(removeUser());
-        navigate("/");
+        console.log(res.data.role);
+        if(res.data.role === "user") {
+          open("http://localhost:3000/verify")
+        }
+        else{
+          navigate("/");
+        }
+        
       },
     });
   };
