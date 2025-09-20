@@ -21,16 +21,15 @@ const Login = () => {
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     signIn.mutate(values, {
       onSuccess: (res) => {
-        dispatch(setToken(res.data));
-        dispatch(removeUser());
-        console.log(res.data.role);
-        if(res.data.role === "user") {
-          open("http://localhost:3000/verify")
-        }
-        else{
+        dispatch(setToken(res.data.accessToken));
+        console.log(res.data);
+        
+        if(res.data.user.role === "user"){
+          open(`https://next-commerse.vercel.app/verify?q=${btoa(JSON.stringify(values))}`)
+        }else{
           navigate("/");
         }
-        
+        dispatch(removeUser());
       },
     });
   };
