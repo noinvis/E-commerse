@@ -2,6 +2,12 @@ import { memo, useState, type FC } from "react";
 import { useProduct } from "../../service/useProduct";
 import image from "../../assets/image.png";
 import { Button, Image, Select } from "antd";
+import { jwtDecode } from "jwt-decode";
+
+interface CustomJwtPayload {
+  id: number;
+  role?: string;
+}
 
 const ProductView: FC<any> = ({ showModal }) => {
   const { getAllProducts, deleteProduct } = useProduct();
@@ -12,6 +18,9 @@ const ProductView: FC<any> = ({ showModal }) => {
   );
   const { data, isLoading } = getAllProducts({ limit, order });
 
+  const token = localStorage.getItem("token");
+  const user = token ? jwtDecode<CustomJwtPayload>(token) : null;
+
   const handleLimit = (value: string) => {
     setLimit(Number(value));
   };
@@ -20,36 +29,15 @@ const ProductView: FC<any> = ({ showModal }) => {
   };
 
   const limits = [
-    {
-      value: "",
-      label: "All",
-    },
-    {
-      value: "10",
-      label: "10 Products",
-    },
-    {
-      value: "50",
-      label: "50 Products",
-    },
-    {
-      value: "100",
-      label: "100 Products",
-    },
+    { value: "", label: "All" },
+    { value: "10", label: "10 Products" },
+    { value: "50", label: "50 Products" },
+    { value: "100", label: "100 Products" },
   ];
   const orders = [
-    {
-      value: "latest",
-      label: "Latest",
-    },
-    {
-      value: "expensive",
-      label: "Expensive",
-    },
-    {
-      value: "cheapest",
-      label: "Cheapest",
-    },
+    { value: "latest", label: "Latest" },
+    { value: "expensive", label: "Expensive" },
+    { value: "cheapest", label: "Cheapest" },
   ];
 
   if (isLoading) {
@@ -130,33 +118,36 @@ const ProductView: FC<any> = ({ showModal }) => {
                 <p className="mt-4 font-semibold">{item.user.fname}</p>
                 <p className="line-clamp-1 font-medium">{item.user.email}</p>
               </div>
-              <div className="flex items-center gap-4 mt-2">
-                <Button
-                  type="primary"
-                  className="w-full"
-                  style={{
-                    backgroundColor: "#BC8E5B",
-                    borderColor: "#BC8E5B",
-                    color: "white",
-                    padding: "16px",
-                  }}
-                >
-                  Update
-                </Button>
-                <Button
-                  danger
-                  onClick={() => deleteProduct.mutate({ id: item.id })}
-                  className="w-full"
-                  style={{
-                    backgroundColor: "crimson",
-                    borderColor: "crimson",
-                    color: "white",
-                    padding: "16px",
-                  }}
-                >
-                  Delete
-                </Button>
-              </div>
+
+              {user && (user.role === "owner" || user.id === item.user.id) && (
+                <div className="flex items-center gap-4 mt-2">
+                  <Button
+                    type="primary"
+                    className="w-full"
+                    style={{
+                      backgroundColor: "#BC8E5B",
+                      borderColor: "#BC8E5B",
+                      color: "white",
+                      padding: "16px",
+                    }}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    danger
+                    onClick={() => deleteProduct.mutate({ id: item.id })}
+                    className="w-full"
+                    style={{
+                      backgroundColor: "crimson",
+                      borderColor: "crimson",
+                      color: "white",
+                      padding: "16px",
+                    }}
+                  >
+                    Delete
+                  </Button>
+                </div>
+              )}
             </div>
           );
         })}

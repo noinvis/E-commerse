@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { AiOutlineProduct } from "react-icons/ai";
 import { BiSolidUserAccount } from "react-icons/bi";
+import { CgProfile } from "react-icons/cg";
 import { GoGraph } from "react-icons/go";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -89,7 +90,7 @@ const Sidebar = () => {
           <li>
             <NavLink className={"sidebar__link"} to={"profile"}>
               <div className="flex gap-[16px] items-center">
-                <BiSolidUserAccount className="text-[24px]" />
+                <CgProfile className="text-[24px]" />
                 <p>Profile</p>
               </div>
             </NavLink>

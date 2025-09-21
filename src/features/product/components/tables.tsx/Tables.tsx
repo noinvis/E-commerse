@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Table, Space, Tag, Button, Popconfirm } from "antd";
+import { Table, Space, Tag, Button } from "antd";
 import type { TableProps } from "antd";
 import { EditOutlined, DeleteOutlined } from "@ant-design/icons";
 
@@ -73,15 +73,9 @@ const columns: TableProps<ProductType>["columns"] = [
           >
             Edit
           </Button>
-          <Popconfirm
-            title="Are you sure delete this category?"
-            okText="Yes"
-            cancelText="No"
-          >
             <Button danger icon={<DeleteOutlined />}>
               Delete
             </Button>
-          </Popconfirm>
         </Space>
       ),
   },
