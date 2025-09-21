@@ -68,8 +68,8 @@ const Categories = () => {
       title: "Action",
       key: "action",
       width: 200,
-      render: (_: any, item: any) => {        
-        return user && user.id === item.user.id ? (
+      render: (_: any, item: any) => {                
+        return user && (user.role === "owner" || user.id === item.user.id) ? (
           <Space>
             <Button
               icon={<EditOutlined />}
@@ -87,7 +87,7 @@ const Categories = () => {
               Delete
             </Button>
           </Space>
-        ) : null;
+        ) : <Button danger>Tegma kuyasan!</Button>;
       },
     },
   ];
