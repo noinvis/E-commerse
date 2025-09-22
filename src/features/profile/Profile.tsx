@@ -37,7 +37,7 @@ const Profile = () => {
             </div>
           </div>
           <div className="flex justify-center mt-[30px]">
-            <button className="text-white rounded-2xl bg-[#BC8E5B] py-3 px-[80px] text-[18px] font-medium border-[1px] border-[#BC8E5B] hover:bg-white duration-300 hover:text-[#BC8E5B]">Update</button>
+            <button className="text-white rounded-2xl bg-[#BC8E5B] py-2 px-[60px] text-[18px] font-medium border-[1px] border-[#BC8E5B] hover:bg-white duration-300 hover:text-[#BC8E5B]">Update</button>
           </div>
         </div>
       </div>
