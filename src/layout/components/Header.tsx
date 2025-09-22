@@ -1,20 +1,11 @@
 import { memo } from "react";
 import { BsBellFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
-import { RxExit } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
-import { removeToken } from "../../features/auth/store/authSlice";
-import { useDispatch } from "react-redux";
 import { IoSearchOutline } from "react-icons/io5";
 
 const Header = ({ user, onToggle }: { user: any; onToggle: () => void }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  
-  const logout = () => {
-    dispatch(removeToken());
-    navigate("/login");
-  };
   const goProfile = () => {
     navigate("/profile")
   }
@@ -34,12 +25,6 @@ const Header = ({ user, onToggle }: { user: any; onToggle: () => void }) => {
       <div className="flex gap-[24px] items-center">
         <button className="text-[20px] text-[#555] cursor-pointer">
           <BsBellFill />
-        </button>
-        <button
-          className="text-[20px] text-[#555] cursor-pointer"
-          onClick={logout}
-        >
-          <RxExit />
         </button>
         <div className="flex gap-2">
           <div className="flex flex-col items-end">

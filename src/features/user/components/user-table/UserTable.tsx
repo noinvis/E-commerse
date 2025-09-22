@@ -19,7 +19,9 @@ const UserTable: React.FC = () => {
   const { getAllUsers, deleteUser } = useUser();
   const { data: users, isLoading, error } = getAllUsers();
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return (<div className="h-[70vh] flex justify-center items-center">
+        <div className="loader"></div>
+      </div>);
   if (error) return <p>Xatolik yuz berdi</p>;
 
   const data: UserType[] =

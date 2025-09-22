@@ -3,10 +3,18 @@ import { AiOutlineProduct } from "react-icons/ai";
 import { BiSolidUserAccount } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { GoGraph } from "react-icons/go";
+import { RxExit } from "react-icons/rx";
+import { useDispatch } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
+import { removeToken } from "../../features/auth/store/authSlice";
 
 const Sidebar = ({ toggle }: { toggle: boolean }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const logout = () => {
+    dispatch(removeToken());
+    navigate("/login");
+  };
   return (
     <div className="dashboard">
       <div
@@ -14,7 +22,12 @@ const Sidebar = ({ toggle }: { toggle: boolean }) => {
           toggle ? "w-[80px]" : "w-[250px]"
         }`}
       >
-        <div className={`cursor-pointer transition-all duration-300 ${!toggle ? "pl-[18px]" : "pl-0"}`} onClick={() => navigate("/")}>
+        <div
+          className={`cursor-pointer transition-all duration-300 ${
+            !toggle ? "pl-[18px]" : "pl-0"
+          }`}
+          onClick={() => navigate("/")}
+        >
           {!toggle ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,40 +100,51 @@ const Sidebar = ({ toggle }: { toggle: boolean }) => {
             </svg>
           )}
         </div>
-        <ul>
-          <li>
-            <NavLink end={true} className={"sidebar__link"} to={""}>
-              <div className="flex gap-[16px] items-center">
-                <GoGraph className="text-[24px]" />
-                {!toggle && <p>Statistics</p>}
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={"sidebar__link"} to={"product-main"}>
-              <div className="flex gap-[16px] items-center">
-                <AiOutlineProduct className="text-[24px]" />
-                {!toggle && <p>Products</p>}
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={"sidebar__link"} to={"user"}>
-              <div className="flex gap-[16px] items-center">
-                <BiSolidUserAccount className="text-[24px]" />
-                {!toggle && <p>Users</p>}
-              </div>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink className={"sidebar__link"} to={"profile"}>
-              <div className="flex gap-[16px] items-center">
-                <CgProfile className="text-[24px]" />
-                {!toggle && <p>Profile</p>}
-              </div>
-            </NavLink>
-          </li>
-        </ul>
+        <div className="flex flex-col justify-between h-full">
+          <ul>
+            <li>
+              <NavLink end={true} className={"sidebar__link"} to={""}>
+                <div className="flex gap-[16px] items-center">
+                  <GoGraph className="text-[24px]" />
+                  {!toggle && <p>Statistics</p>}
+                </div>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={"sidebar__link"} to={"product-main"}>
+                <div className="flex gap-[16px] items-center">
+                  <AiOutlineProduct className="text-[24px]" />
+                  {!toggle && <p>Products</p>}
+                </div>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={"sidebar__link"} to={"user"}>
+                <div className="flex gap-[16px] items-center">
+                  <BiSolidUserAccount className="text-[24px]" />
+                  {!toggle && <p>Users</p>}
+                </div>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className={"sidebar__link"} to={"profile"}>
+                <div className="flex gap-[16px] items-center">
+                  <CgProfile className="text-[24px]" />
+                  {!toggle && <p>Profile</p>}
+                </div>
+              </NavLink>
+            </li>
+          </ul>
+          <button
+            className="text-[24px] flex items-center gap-4 text-[#555] cursor-pointer"
+            onClick={logout}
+          >
+            <RxExit />
+            {!toggle && 
+            <p className="text-[1rem] font-medium">Log out</p>
+            }
+          </button>
+        </div>
       </div>
     </div>
   );
